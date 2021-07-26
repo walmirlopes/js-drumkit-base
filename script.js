@@ -1,4 +1,7 @@
+/*Cria um evento para escutar a interação do usuário com a página recebendo como
+primeiro parâmetro o tipo de evento e passando o evento com suas funções como segundo parâmetro*/
 document.body.addEventListener('keyup', (event) => {
+    //chamada da função playSound e conversão do valor recebido para lowerCase
     playSound(event.code.toLowerCase())
 })
 
@@ -16,8 +19,12 @@ function playSound(sound) {
     let keyElement = document.querySelector(`div[data-key="${sound}"]`)
 
     if (audioElement) {
-        audioElement.currentTime = 0
-        audioElement.play()
+        audioElement.currentTime = 0  //reseta tempo de execução
+        audioElement.play() //executa efeito sonoro da variável
+    }
+
+    if (!audioElement) {
+        //console.log('Elemento Inválido')
     }
 
     if (keyElement) {
